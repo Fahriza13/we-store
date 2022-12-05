@@ -48,7 +48,7 @@ class ProductController extends Controller
     // update product
     public function update(Request $request, $id)
     {
-        $update = Product::where("id_product", $id)->update($request->all());
+        $update = Product::where("id", $id)->update($request->all());
         
         // return $update;
          return response()->json([
@@ -60,7 +60,7 @@ class ProductController extends Controller
     // delete product
     public function destroy($id)
     {
-        $data = Product::where("id_product", $id);
+        $data = Product::where("id", $id);
         if($data){
             $data->delete();
             return["message" => "Delete Success"];
